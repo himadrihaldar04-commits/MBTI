@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Personality Profile | Mental Health &amp; Wellness Centre</title>
+<style>
+:root{--bg:#f3f1fb;--card:#fff;--tx:#1d1b2e;--mu:#6b6880;--ac:#6d4aff;--ac2:#ece7ff;--bd:#e4e0f3;--g1:#6d4aff;--g2:#00b8a9;--g3:#ff6b9a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12111c;--card:#1b1a29;--tx:#efedfa;--mu:#a29fb8;--ac:#9a82ff;--ac2:#2a2545;--bd:#2c2a40}}
+:root[data-theme="dark"]{--bg:#12111c;--card:#1b1a29;--tx:#efedfa;--mu:#a29fb8;--ac:#9a82ff;--ac2:#2a2545;--bd:#2c2a40}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:0 16px 40px}
+.brand{text-align:center;padding:26px 0 8px}
+.brand .lg{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--g1),var(--g2));font-size:1.7rem;box-shadow:0 8px 20px rgba(109,74,255,.3)}
+.brand h1{font-size:1.35rem;margin:10px 0 0;letter-spacing:.01em}
+.brand .sub{color:var(--mu);font-size:.9rem}
+h2{font-size:1.2rem;margin:.1em 0 .6em}h3{font-size:1rem;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px;margin-top:16px}
+.mu{color:var(--mu);font-size:.9rem}
+label{display:block;font-weight:600;margin:14px 0 4px;font-size:.92rem}
+input,select{width:100%;padding:12px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font-size:1rem}
+button{font:inherit;cursor:pointer;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:11px 18px}
+button.p{background:linear-gradient(135deg,var(--g1),#8a6bff);color:#fff;border:0;font-weight:600;box-shadow:0 6px 16px rgba(109,74,255,.3)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.opt{display:block;width:100%;text-align:left;margin-top:10px;padding:15px 16px;line-height:1.4;transition:.15s}
+.opt.on{background:var(--ac2);border-color:var(--ac);transform:scale(1.01)}
+.bar{height:8px;background:var(--bd);border-radius:99px;overflow:hidden;margin:10px 0 4px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));transition:width .25s}
+.row{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:18px;flex-wrap:wrap}
+.err{color:#dc2626;font-size:.88rem;margin-top:8px;min-height:1.2em}
+.hide{display:none}
+a.lk{color:var(--ac);cursor:pointer;text-decoration:underline;font-size:.85rem}
+.tbl{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{padding:8px 6px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}
+/* result */
+.hero{border-radius:22px;padding:30px 20px;text-align:center;color:#fff;background:linear-gradient(135deg,#6d4aff 0%,#a14bff 45%,#ff6b9a 100%);box-shadow:0 14px 36px rgba(109,74,255,.35);margin-top:16px;animation:rise .6s both}
+.hero .who{opacity:.9;font-size:.95rem}
+.tiles{display:flex;justify-content:center;gap:10px;margin:16px 0 8px}
+.tile{width:68px;padding:10px 0 8px;border-radius:16px;background:rgba(255,255,255,.18);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.35)}
+.tile b{display:block;font-size:2.3rem;line-height:1.1}.tile span{font-size:.68rem;opacity:.9;letter-spacing:.04em}
+.hero h2{font-size:1.7rem;margin:6px 0 2px}.hero .tag{opacity:.95;font-style:italic}
+.dim{margin:16px 0}.dim .l{display:flex;justify-content:space-between;font-size:.88rem;font-weight:600;gap:8px}
+.dim .t{height:14px;background:var(--bd);border-radius:99px;overflow:hidden;margin-top:6px}
+.dim .t i{display:block;height:100%;width:0;border-radius:99px;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.dim p{margin:6px 0 0;font-size:.88rem;color:var(--mu)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.tile{width:60px}}
+.box{border-radius:16px;padding:16px;border:1px solid var(--bd);animation:rise .6s both}
+.box ul{margin:0;padding-left:18px}.box li{margin:4px 0}
+.b1{background:linear-gradient(160deg,rgba(0,184,169,.14),transparent)}
+.b2{background:linear-gradient(160deg,rgba(255,107,154,.14),transparent)}
+.b3{background:linear-gradient(160deg,rgba(109,74,255,.14),transparent)}
+.b4{background:linear-gradient(160deg,rgba(255,176,32,.16),transparent)}
+.chips span{display:inline-block;margin:4px 6px 0 0;padding:6px 12px;border-radius:99px;background:var(--ac2);font-size:.88rem;font-weight:600}
+.tip{border-radius:16px;padding:16px 18px;background:linear-gradient(135deg,rgba(0,184,169,.18),rgba(109,74,255,.14));border:1px solid var(--bd);margin-top:14px}
+.foot{text-align:center;color:var(--mu);font-size:.8rem;margin-top:16px}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<main>
+<header class="brand">
+  <div class="lg">🌿</div>
+  <h1>Mental Health &amp; Wellness Centre</h1>
+  <div class="sub">Personality Profile · 40 questions · about 8 minutes</div>
+</header>
+
+<section id="v-enroll" class="card">
+  <h2>Enroll to begin</h2>
+  <label>Full name *</label><input id="f-name" autocomplete="name">
+  <label>Email or phone *</label><input id="f-contact" autocomplete="email">
+  <label>Age group</label>
+  <select id="f-age"><option value="">Prefer not to say</option><option>Under 18</option><option>18–25</option><option>26–35</option><option>36–50</option><option>51+</option></select>
+  <div class="err" id="e-enroll"></div>
+  <div class="row"><span class="mu">Choose what feels natural, not what seems "better".</span><button class="p" id="b-start">Start test</button></div>
+</section>
+
+<section id="v-quiz" class="card hide">
+  <div class="mu" id="q-prog"></div>
+  <div class="bar"><i id="q-bar"></i></div>
+  <h2 id="q-text"></h2>
+  <div id="q-opts"></div>
+  <div class="row"><button id="b-back">← Back</button><button class="p" id="b-next" disabled>Next →</button></div>
+</section>
+
+<section id="v-result" class="hide">
+  <div class="hero">
+    <div class="who" id="r-who"></div>
+    <div class="tiles" id="r-tiles"></div>
+    <h2 id="r-nick"></h2>
+    <div class="tag" id="r-tag"></div>
+  </div>
+  <div class="card"><h3>✨ Who you are</h3><div id="r-sum"></div></div>
+  <div class="card"><h3>🔍 Deeper analysis of your character</h3><div class="grid">
+    <div class="box b3"><h3>💞 In relationships</h3><div id="r-rel"></div></div>
+    <div class="box b4"><h3>💼 At work or study</h3><div id="r-wrk"></div></div>
+    <div class="box b2"><h3>⚡ Under stress</h3><div id="r-sts"></div></div>
+    <div class="box b1"><h3>🚀 Your growth path</h3><div id="r-grw"></div></div>
+  </div></div>
+  <div class="card"><h3>📊 Your four preferences</h3><div id="r-dims"></div></div>
+  <div class="card"><div class="grid">
+    <div class="box b1"><h3>💪 Your strengths</h3><ul id="r-str"></ul></div>
+    <div class="box b2"><h3>🌱 Areas to grow</h3><ul id="r-gro"></ul></div>
+  </div>
+  <div class="tip" id="r-tip"></div></div>
+  <div class="card"><h3>🧭 Careers and roles that may suit you</h3><div class="chips" id="r-car"></div></div>
+  <div class="foot">This is an informal self-assessment for reflection, not a clinical or official MBTI® tool. Treat results as preferences, not fixed labels. For personal guidance, speak with a counsellor at the centre.</div>
+  <div class="row" style="justify-content:center"><button id="b-copy">Copy my result</button><button class="p" id="b-new">New participant</button></div>
+</section>
+
+<section id="v-pin" class="card hide">
+  <h2>Organizer access</h2>
+  <label>Enter PIN</label><input id="f-pin" type="password" inputmode="numeric" autocomplete="off">
+  <div class="err" id="e-pin"></div>
+  <div class="row"><button id="b-pincancel">Cancel</button><button class="p" id="b-pinok">Unlock</button></div>
+</section>
+
+<section id="v-admin" class="card hide">
+  <h2>Organizer view</h2>
+  <p class="mu" id="a-note"></p>
+  <div class="tbl"><table><thead><tr><th>#</th><th>Name</th><th>Contact</th><th>Age</th><th>Type</th><th>E/I</th><th>S/N</th><th>T/F</th><th>J/P</th><th></th></tr></thead><tbody id="a-body"></tbody></table></div>
+  <div class="row"><button id="b-csv">Copy as CSV</button><button id="b-clear">Clear this device</button><button class="p" id="b-exit">Back</button></div>
+</section>
+
+<p style="text-align:center;margin-top:24px"><a class="lk" id="l-admin">Organizer view</a></p>
+</main>
+
+<script>
+var Q=[
+["At a party, you:","meet lots of new people","stick with a few people you know"],
+["After a long week, you recharge by:","going out with friends","spending time alone"],
+["You tend to:","think out loud while talking","think things through before speaking"],
+["Friends would describe you as:","outgoing and expressive","reserved and thoughtful"],
+["In group discussions, you:","speak up quickly","listen first, then contribute"],
+["You prefer:","many casual friends","a few close friends"],
+["When an unexpected call comes in, you:","happily pick up","prefer to text or call back later"],
+["At work, you'd rather have:","a busy, collaborative space","a quiet, private space"],
+["Being the center of attention feels:","energizing","uncomfortable or draining"],
+["With a free weekend, you:","plan social activities","enjoy hobbies at home"],
+["You trust more:","facts and past experience","hunches and patterns"],
+["You prefer instructions that are:","specific and step-by-step","general, so you can figure it out"],
+["You're more interested in:","what is","what could be"],
+["You tend to describe things:","literally and precisely","with metaphors and analogies"],
+["You prefer to:","use proven methods","try new approaches"],
+["You notice:","details","the big picture"],
+["You see yourself as more:","practical","imaginative"],
+["When learning something new, you:","practice hands-on first","understand the concept or theory first"],
+["You enjoy:","concrete, realistic stories","abstract, symbolic ideas"],
+["Your mind lives more in:","the present","future possibilities"],
+["You decide mainly by:","logic and objective analysis","values and how people will be affected"],
+["When a friend has a problem, you:","suggest solutions","offer emotional support"],
+["You'd rather be seen as:","fair and truthful","kind and compassionate"],
+["In an argument, you:","stick to the facts","work toward harmony"],
+["When giving criticism, you:","are frank and direct","soften it to avoid hurt feelings"],
+["Which is worse?","being unreasonable","being insensitive"],
+["Rules should:","apply equally to everyone","bend for special circumstances"],
+["You're moved more by:","a strong argument","a touching story"],
+["In a workplace conflict, you first:","analyze the cause","consider everyone's feelings"],
+["You tend to be:","skeptical and questioning","trusting and accommodating"],
+["You prefer:","a planned schedule","spontaneity"],
+["With deadlines, you:","finish early","work best at the last minute"],
+["Your workspace is usually:","organized","flexible, even messy"],
+["On trips, you like:","a detailed itinerary","going with the flow"],
+["You like decisions to be:","settled quickly","left open as long as possible"],
+["To-do lists:","you make them and follow them","you rarely use them"],
+["Unexpected changes of plan feel:","stressful","exciting or no big deal"],
+["You prefer to:","finish one project before starting another","juggle several at once"],
+["Your daily routine is:","consistent","varied"],
+["When starting a task, you:","plan first","dive in and adjust as you go"]
+];
+var D=[["E","I","Extraversion","Introversion"],["S","N","Sensing","Intuition"],["T","F","Thinking","Feeling"],["J","P","Judging","Perceiving"]];
+var LD={E:"You gain energy from people, conversation and action.",I:"You gain energy from quiet time, reflection and depth.",S:"You trust concrete facts, details and lived experience.",N:"You trust patterns, ideas and future possibilities.",T:"You decide with logic, fairness and objective analysis.",F:"You decide with values, empathy and care for people.",J:"You like plans, structure and closure.",P:"You like flexibility, options and going with the flow."};
+var COL=["#6d4aff","#00b8a9","#ff6b9a","#ffb020"];
+var T={
+ISTJ:["The Inspector","Dependable, orderly and quietly determined","You value duty, facts and doing things properly. People rely on you because you follow through, and your calm steadiness makes others feel safe.","Reliable and thorough|Strong sense of responsibility|Calm under pressure","Can resist change too quickly|May keep feelings to yourself","Schedule rest like an appointment and share worries before they pile up.","Accounting|Administration|Engineering"],
+ISFJ:["The Protector","Warm, loyal and attentive to others","You notice what people need and quietly meet it. You are patient, caring and committed, often the steady heart of a family or team.","Caring and supportive|Detail-minded and dependable|Patient listener","Can struggle to say no|May overlook your own needs","Your needs count too: practise saying no kindly, and rest without guilt.","Nursing|Teaching|Counselling"],
+INFJ:["The Counselor","Insightful, idealistic and deeply caring","You sense what lies beneath the surface and want your life to mean something. You combine vision with compassion and guide others gently.","Deep empathy and insight|Strong values and vision|Thoughtful communicator","Can be a perfectionist|May absorb others' emotions and burn out","Protect quiet time to recharge, and journal to process strong feelings.","Psychology|Writing|Social work"],
+INTJ:["The Mastermind","Strategic, independent and driven","You see the big picture and build plans to reach it. You hold high standards for yourself and for ideas, and prefer substance over small talk.","Strategic thinker|Independent and focused|Quick problem solver","Can seem distant or blunt|May struggle to ask for help","Let people in: sharing plans and stress with someone trusted lightens the load.","Research|Technology|Management"],
+ISTP:["The Craftsperson","Calm, curious and hands-on","You learn by doing and stay cool when things go wrong. You enjoy understanding how things work and value freedom to explore.","Practical problem solver|Calm in a crisis|Adaptable and resourceful","Can be hard to read emotionally|May avoid long-term commitments","Name your feelings out loud sometimes; physical activity is a great stress reliever for you.","Engineering|Mechanics|Emergency services"],
+ISFP:["The Composer","Gentle, artistic and authentic","You live by your values and express them through actions and creativity. You are kind, flexible and enjoy beauty in everyday life.","Sensitive and caring|Creative and open-minded|Loyal to your values","Can avoid conflict|May be too hard on yourself","Creative outlets like art, music or nature walks are real medicine for you.","Design|Healthcare|Arts"],
+INFP:["The Healer","Idealistic, empathetic and imaginative","You search for meaning and want to help the world be kinder. You feel deeply, value authenticity and have a rich inner life.","Empathetic and genuine|Creative and imaginative|Committed to your values","Can be self-critical|May drift into overthinking","Be as kind to yourself as to others; writing helps you turn feelings into clarity.","Counselling|Writing|Teaching"],
+INTP:["The Architect","Analytical, inventive and curious","You love ideas, logic and understanding how things fit together. You question assumptions and enjoy exploring concepts for their own sake.","Logical and analytical|Original thinker|Open-minded","Can neglect practical or social needs|May stay stuck in analysis","Step out of your head: movement and time with friends balance heavy thinking.","Science|Software|Research"],
+ESTP:["The Dynamo","Energetic, bold and action-oriented","You live in the moment, think fast and love real experiences. You read situations quickly and enjoy solving problems on the spot.","Quick thinker and doer|Confident and persuasive|Handles risk well","Can act before planning|May get bored with routine","Pause before big decisions and build calm routines alongside the excitement.","Sales|Sports|Entrepreneurship"],
+ESFP:["The Performer","Lively, friendly and spontaneous","You bring joy and energy to every room. You enjoy people, new experiences and making others feel included.","Warm and enthusiastic|Practical and observant|Great with people","Can avoid difficult topics|May neglect long-term planning","Make space for quiet reflection and plan ahead for money and goals.","Hospitality|Teaching|Events"],
+ENFP:["The Champion","Enthusiastic, creative and people-focused","You see possibilities everywhere and inspire others to see them too. You are curious, expressive and driven by meaning and connection.","Inspiring and creative|Warm and communicative|Adaptable","Can struggle to finish projects|May overcommit and feel drained","Choose a few priorities and protect rest days so enthusiasm does not turn into burnout.","Counselling|Media|Training"],
+ENTP:["The Debater","Quick-witted, inventive and challenging","You love ideas, debate and finding new ways to do things. You spot possibilities quickly and enjoy testing what others take for granted.","Innovative and resourceful|Confident speaker|Sees many angles","Can argue for sport|May leave tasks unfinished","Turn ideas into small, finished steps, and listen fully before you debate.","Entrepreneurship|Law|Consulting"],
+ESTJ:["The Supervisor","Organized, decisive and responsible","You bring order and get things done. You value clear rules, honesty and effort, and step up naturally to lead.","Organized and efficient|Honest and direct|Natural leader","Can be inflexible|May overlook feelings of others","Ask 'how are you really?' as often as 'what's the status?', and schedule real downtime.","Management|Administration|Law enforcement"],
+ESFJ:["The Provider","Caring, sociable and conscientious","You are tuned in to others and love bringing people together. You value harmony, tradition and being useful to those you care about.","Warm and cooperative|Reliable host and organizer|Attentive to others","Can take criticism personally|May put others first too often","Accept help as well as give it, and check in with your own feelings daily.","Healthcare|Education|Human resources"],
+ENFJ:["The Teacher","Charismatic, supportive and inspiring","You bring out the best in people. You communicate with warmth, think about everyone's growth and lead through encouragement.","Inspiring communicator|Empathetic leader|Organized and caring","Can over-give and ignore yourself|May take others' problems on as your own","Set healthy limits: you can support others best when you are well rested yourself.","Teaching|Counselling|Community leadership"],
+ENTJ:["The Commander","Confident, strategic and ambitious","You see what needs to be done and rally people to do it. You enjoy goals, efficiency and tackling big challenges head on.","Natural leader|Strategic and decisive|Highly motivated","Can come across as impatient|May overlook emotional needs","Slow down to listen; rest and relationships matter as much as results.","Executive roles|Law|Business"]
+};
+var X={
+ISTJ:["Loyal, steady partner who shows love through actions and kept promises; you may need to put feelings into words.","You thrive with clear roles, deadlines and quality standards; you prepare well and finish what you start.","Under pressure you may become rigid, overwork or withdraw; sudden change feels unsettling.","Practise flexibility, try one new approach a month, and treat feelings as useful information."],
+ISFJ:["Devoted and thoughtful; you remember details that matter to loved ones, but may hide hurt to keep the peace.","You excel in supportive, service roles; you are careful, dependable and quietly make sure everyone is looked after.","Stress shows as exhaustion, worry or resentment when your effort goes unnoticed.","Voice your needs early, delegate, and accept that disappointing someone occasionally is healthy."],
+INFJ:["You seek deep, meaningful bonds and listen with real attention; you need partners who respect your private inner world.","You excel where you help people grow or work toward a purpose; routine or conflict-heavy places drain you.","Overload leads to withdrawal, self-doubt or sudden frustration after long, silent patience.","Share feelings sooner, aim for 'good enough', and balance caring for others with real rest."],
+INTJ:["Loyal and honest, you show care by solving problems and planning a future; warmth may need to be said aloud.","You work best with autonomy and long-term goals; you improve systems and dislike inefficiency.","Under stress you may become critical, isolate or overwork; ignored feelings can surface suddenly.","Invite feedback, value others' input and practise saying 'I'm struggling'."],
+ISTP:["Easygoing and loyal, you show care through help and shared activity; you need space and may avoid long emotional talks.","You like practical, hands-on challenges with freedom to troubleshoot; micromanagement frustrates you.","Stress may bring irritability, withdrawal or impulsive, risky moves.","Practise expressing feelings briefly and plan ahead for long-term goals."],
+ISFP:["Gentle, accepting partner who values authenticity; you may avoid conflict and go quiet when hurt.","You do well in creative, caring or hands-on roles that fit your values and allow flexibility.","Under pressure you may withdraw, feel criticised easily or become very harsh on yourself.","Speak up about your needs, build confidence in your work and plan beyond today."],
+INFP:["Devoted and accepting; you want a soul-level connection and may idealise partners or keep disappointment inside.","You shine in meaningful, creative work with freedom; harsh criticism, rigid rules and pure routine drain you.","Stress brings self-criticism, withdrawal or feeling misunderstood; you may get lost in 'what if'.","Turn ideals into small steps, accept imperfect progress and share feelings before they build."],
+INTP:["Loyal, curious and low-drama; you show love through ideas and time, but may seem detached or forget to check in.","You thrive on complex problems and independence; you dislike pointless meetings and rigid procedure.","Under stress you may overanalyse, isolate or turn sarcastic, then feel suddenly overwhelmed by emotion.","Finish projects, check in with people and treat feelings as data too."],
+ESTP:["Fun, generous and direct; relationships thrive on shared experiences, though you may dodge heavy emotional talks.","You excel in fast, practical, people-facing settings; paperwork and long planning cycles bore you.","Stress shows as restlessness, risk-taking or snapping when you feel controlled.","Pause before acting, plan one step further ahead and practise listening to feelings."],
+ESFP:["Warm, affectionate and generous; you make loved ones feel celebrated but may avoid conflict or heavy talk.","You shine around people, with variety and visible impact; isolation and strict routine drain you.","Stress brings avoidance, mood swings or seeking distraction; criticism can hurt deeply.","Face problems early, plan finances and goals, and schedule quiet reflection."],
+ENFP:["Affectionate, curious and expressive; you want a partner who grows with you, but may lose interest in routine or feel unheard.","You excel in creative, people-centred work with variety; rigid rules and repetitive admin drain you.","Stress shows as scattered focus, mood swings or sudden withdrawal after overcommitting.","Finish what matters most, build simple routines and say no without guilt."],
+ENTP:["Playful, stimulating and loyal to people who keep up with you; you may debate when someone needs comfort.","You thrive in innovation, problem solving and variety; strict routine and slow processes frustrate you.","Under stress you may argue more, scatter your energy or ignore feelings until they burst.","Follow through, soften your delivery and ask 'do you want ideas or support?'"],
+ESTJ:["Dependable and protective; you show love through providing and planning, but may seem controlling or too blunt.","You lead well with structure, clear goals and accountability; you dislike disorder and vague expectations.","Stress brings bossiness, overwork or irritability when things aren't done properly.","Listen before deciding, allow other styles to work and make time simply to enjoy life."],
+ESFJ:["Caring, generous and loyal; you work hard to keep harmony but may feel unappreciated and hide your own needs.","You do best in cooperative, people-focused settings where you can help; conflict and cold environments drain you.","Stress shows as people-pleasing, worry about others' opinions or sudden hurt after long silence.","Say what you need, accept disagreement and don't base your worth on approval."],
+ENFJ:["Attentive, expressive and devoted; you invest in loved ones' growth but may give so much that you lose yourself.","You lead, teach and mentor well; you need appreciation and meaningful goals, and dislike cold, mechanical settings.","Stress brings self-blame, over-responsibility and exhaustion when you absorb others' problems.","Let others solve their own problems, accept help and protect time for yourself."],
+ENTJ:["Committed and protective; you show love through goals and support, but may be too forceful or too busy to slow down.","You lead decisively, organise people and resources and enjoy big challenges; slow inefficiency frustrates you.","Stress brings impatience, control or ignoring your own limits; hidden emotions can erupt.","Listen first, celebrate others' contributions and treat rest as part of the plan."]
+};
+var pinOK=false,KEY="mbti_results_v2",ans=[],cur=0,me=null,lastRes=null,dbRef=null,dbOK=false,userId=null;
+function $(i){return document.getElementById(i)}
+function show(id){["v-enroll","v-quiz","v-result","v-admin","v-pin"].forEach(function(v){$(v).classList.toggle("hide",v!==id)});window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function lload(){try{return JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){return[]}}
+function lsave(a){try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}}
+
+/* shared storage: lights up only when the viewer can use it */
+(async function(){
+  try{
+    var db=await claude.use("db");var us=await claude.use("user");
+    if(db&&us){userId=await us.id();if(userId){dbRef=db;dbOK=true}}
+  }catch(e){}
+})();
+
+$("b-start").onclick=function(){
+  var n=$("f-name").value.trim(),c=$("f-contact").value.trim();
+  if(!n||!c){$("e-enroll").textContent="Please enter your name and email/phone.";return}
+  me={name:n,contact:c,age:$("f-age").value};ans=[];cur=0;show("v-quiz");render();
+};
+function render(){
+  var q=Q[cur];
+  $("q-prog").textContent="Question "+(cur+1)+" of 40 · Part "+(Math.floor(cur/10)+1)+" of 4";
+  $("q-bar").style.width=(cur/40*100)+"%";
+  $("q-text").textContent=(cur+1)+". "+q[0];
+  var h="";[1,2].forEach(function(k,i){h+='<button class="opt'+(ans[cur]===i?" on":"")+'" data-i="'+i+'"><b>'+"AB"[i]+")</b> "+esc(q[k])+"</button>"});
+  $("q-opts").innerHTML=h;
+  Array.prototype.forEach.call($("q-opts").children,function(b){b.onclick=function(){ans[cur]=+b.dataset.i;render()}});
+  $("b-back").disabled=cur===0;$("b-next").disabled=ans[cur]===undefined;
+  $("b-next").textContent=cur===39?"Finish ✓":"Next →";
+}
+$("b-back").onclick=function(){if(cur>0){cur--;render()}};
+$("b-next").onclick=function(){if(ans[cur]===undefined)return;if(cur<39){cur++;render()}else finish()};
+
+function score(a){
+  var type="",d=[];
+  D.forEach(function(x,k){var cA=0;for(var i=k*10;i<k*10+10;i++)if(a[i]===0)cA++;type+=cA>5?x[0]:x[1];d.push(cA+"-"+(10-cA))});
+  return{type:type,d:d};
+}
+async function saveShared(rec){
+  if(!dbOK)return;
+  try{
+    var ref=dbRef.doc("results/"+userId),s=await ref.get(),list=[];
+    if(s&&s.exists){var v=s.data();list=(v&&v.tests)||[]}
+    list.push(rec);await ref.set({tests:list});
+  }catch(e){}
+}
+function finish(){
+  var r=score(ans),rec={t:Date.now(),name:me.name,contact:me.contact,age:me.age||"",type:r.type,d:r.d};
+  var all=lload();all.push(rec);lsave(all);saveShared(rec);
+  lastRes=rec;showResult(rec);
+}
+function showResult(p){
+  var t=T[p.type],ty=p.type;
+  $("r-who").textContent="Personality profile for "+p.name;
+  $("r-tiles").innerHTML=ty.split("").map(function(l,i){var k=D[i],w=l===k[0]?k[2]:k[3];return'<div class="tile"><b>'+l+"</b><span>"+w.toUpperCase().slice(0,5)+"</span></div>"}).join("");
+  $("r-nick").textContent=ty+" · "+t[0];$("r-tag").textContent=t[1];
+  $("r-sum").textContent=t[2];var x=X[ty];$("r-rel").textContent=x[0];$("r-wrk").textContent=x[1];$("r-sts").textContent=x[2];$("r-grw").textContent=x[3];
+  var h="";
+  p.d.forEach(function(x,k){
+    var s=x.split("-"),a=+s[0],b=+s[1],d=D[k],win=a>b?d[0]:d[1],pct=(a>b?a:b)*10;
+    h+='<div class="dim"><div class="l"><span>'+d[2]+" ("+d[0]+") "+a*10+'%</span><span>'+b*10+"% "+d[3]+" ("+d[1]+')</span></div><div class="t"><i data-w="'+(a*10)+'" style="background:linear-gradient(90deg,'+COL[k]+','+COL[(k+1)%4]+')"></i></div><p><b>'+win+":</b> "+LD[win]+(a===b?" You are perfectly balanced here, so both sides fit you.":(pct>=80?" This is a very clear preference for you.":pct>=60?" This is a moderate preference.":" This is a slight preference."))+"</p></div>";
+  });
+  $("r-dims").innerHTML=h;
+  $("r-str").innerHTML=t[3].split("|").map(function(x){return"<li>"+esc(x)+"</li>"}).join("");
+  $("r-gro").innerHTML=t[4].split("|").map(function(x){return"<li>"+esc(x)+"</li>"}).join("");
+  $("r-tip").innerHTML="<b>🌿 Wellness tip:</b> "+esc(t[5]);
+  $("r-car").innerHTML=t[6].split("|").map(function(x){return"<span>"+esc(x)+"</span>"}).join("");
+  show("v-result");
+  setTimeout(function(){Array.prototype.forEach.call(document.querySelectorAll(".dim .t i"),function(i){i.style.width=i.dataset.w+"%"})},80);
+}
+$("b-copy").onclick=function(){
+  var p=lastRes,t=T[p.type],s="Mental Health & Wellness Centre\nPersonality profile for "+p.name+": "+p.type+" ("+t[0]+")\n"+t[1]+"\nE/I "+p.d[0]+", S/N "+p.d[1]+", T/F "+p.d[2]+", J/P "+p.d[3]+"\nStrengths: "+t[3].split("|").join(", ")+"\nGrowth: "+t[4].split("|").join(", ")+"\nIn relationships: "+X[p.type][0]+"\nAt work: "+X[p.type][1]+"\nUnder stress: "+X[p.type][2]+"\nGrowth path: "+X[p.type][3]+"\nWellness tip: "+t[5];
+  try{navigator.clipboard.writeText(s);$("b-copy").textContent="Copied ✓"}catch(e){window.prompt("Copy your result:",s)}
+};
+$("b-new").onclick=function(){$("f-name").value="";$("f-contact").value="";$("f-age").value="";$("e-enroll").textContent="";me=null;show("v-enroll")};
+
+/* organizer */
+var rows=[];
+async function admin(){
+  var shared=[],note="";
+  if(dbOK){
+    try{var s=await dbRef.collection("results").get();s.forEach(function(d){var v=d.data();(v&&v.tests||[]).forEach(function(x){shared.push(x)})});note="Showing results shared from all participants who took the test while signed in. Results from this device are included."}catch(e){note="Shared records could not be read here; showing this device only."}
+  }else note="Showing results saved on this device only. Shared collection needs participants to be signed in to claude.ai and invited as Contributors.";
+  var map={},local=lload();
+  shared.concat(local).forEach(function(x){map[x.t+"|"+x.contact]=x});
+  rows=Object.keys(map).map(function(k){return map[k]}).sort(function(a,b){return a.t-b.t});
+  $("a-note").textContent=note+" Total: "+rows.length+".";
+  var h=rows.length?"":'<tr><td colspan="10" class="mu">No participants yet.</td></tr>';
+  rows.forEach(function(p,i){h+="<tr><td>"+(i+1)+"</td><td>"+esc(p.name)+"</td><td>"+esc(p.contact)+"</td><td>"+esc(p.age||"-")+"</td><td><b>"+esc(p.type)+"</b></td>"+p.d.map(function(x){return"<td>"+esc(x)+"</td>"}).join("")+'<td><button data-i="'+i+'">View result</button></td></tr>'});
+  $("a-body").innerHTML=h;
+  Array.prototype.forEach.call($("a-body").querySelectorAll("button"),function(b){b.onclick=function(){lastRes=rows[+b.dataset.i];showResult(lastRes)}});
+  show("v-admin");
+}
+$("l-admin").onclick=function(){if(pinOK)admin();else{$("f-pin").value="";$("e-pin").textContent="";show("v-pin");$("f-pin").focus()}};
+function tryPin(){if($("f-pin").value.trim()==="2004"){pinOK=true;admin()}else $("e-pin").textContent="Incorrect PIN."}
+$("b-pinok").onclick=tryPin;
+$("f-pin").onkeydown=function(e){if(e.key==="Enter")tryPin()};
+$("b-pincancel").onclick=function(){show("v-enroll")};
+$("b-exit").onclick=function(){show("v-enroll")};
+$("b-csv").onclick=function(){
+  var r=[["No","Name","Contact","Age","Type","E-I","S-N","T-F","J-P"]].concat(rows.map(function(p,i){return[i+1,p.name,p.contact,p.age||"",p.type].concat(p.d)}));
+  var t=r.map(function(x){return x.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
+  try{navigator.clipboard.writeText(t);$("b-csv").textContent="Copied ✓"}catch(e){window.prompt("Copy CSV:",t)}
+};
+$("b-clear").onclick=function(){if(confirm("Delete saved results on this device?")){lsave([]);admin()}};
+</script>
+</body>
+</html>
